@@ -1,0 +1,8 @@
+extend type Query {
+    getEntity(id: ID!): ColjaEntity
+}
+
+type ColjaEntity {
+    id: ID!,
+    name: String
+}

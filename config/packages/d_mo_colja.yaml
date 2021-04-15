@@ -1,0 +1,15 @@
+d_mo_colja:
+  schema: config/graphql/base.schema
+  query:
+    demo:
+      class: App\GraphQL\DemoResolver
+      method: demo
+    demoArgs:
+      class: App\GraphQL\DemoResolver
+      method: demoWithArguments
+  extensions:
+    - schema: config/graphql/entityDemo.schema
+      query:
+        getEntity:
+          class: App\GraphQL\DemoEntityResolver
+          method: getColjaEntity

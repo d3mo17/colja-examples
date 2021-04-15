@@ -1,0 +1,4 @@
+type Query {
+    demo: String,
+    demoArgs(name: String!, num: Int): String
+}
