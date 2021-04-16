@@ -3,6 +3,33 @@
 This project contains Examples how to use the Symfony bundle 
 [Colja](https://github.com/d3mo17/colja/).
 
+Try following queries with this project on Request_URI `/graphql`:
+```graphql
+{
+    demo
+}
+```
+
+```graphql
+query {
+  getEntity(id: 60) {
+    id
+    name
+  }
+}
+```
+
+```graphql
+query arg($name: String!, $num: Int) {
+  demoArgs(name: $name, num: $num)
+}
+
+## Variables:
+# {
+#	"name": "Colja",
+#	"num": 123
+# }
+```
 
 \
 &nbsp;
