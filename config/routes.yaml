@@ -1,3 +1,9 @@
 app_file:
     # loads routes from the given routing file stored in some bundle
     resource: '@DMoColjaBundle/Resources/config/routing.yaml'
+
+# Add method get to GraphQL endpoint
+d_mo_colja_endpoint_get:
+    path:       /graphql
+    controller: DMo\Colja\Controller\GraphQLController::endpoint
+    methods:    GET
