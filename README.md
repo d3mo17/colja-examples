@@ -3,7 +3,7 @@
 This project contains Examples how to use the Symfony bundle 
 [Colja](https://github.com/d3mo17/colja/).
 
-Try following queries with this project on Request_URI `/graphql`:
+Try following queries with this project on request-uri `/graphql`:
 ```graphql
 {
     demo
