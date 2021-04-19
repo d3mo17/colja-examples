@@ -22,6 +22,12 @@ class ColjaEntity
     private $name;
 
     /**
+     * @var ColjaWeakEntity[]
+     * @ORM\OneToMany(targetEntity="ColjaWeakEntity", mappedBy="parent")
+     */
+    private $children = [];
+
+    /**
      * @param string $name
      */
     public function __construct(string $name)
@@ -38,5 +44,23 @@ class ColjaEntity
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @param ColjaWeakEntity $entity
+     * @return ColjaEntity
+     */
+    public function addChild(ColjaWeakEntity $entity)
+    {
+        $this->children[] = $entity;
+        return $this;
+    }
+
+    /**
+     * @return ColjaWeakEntity[]
+     */
+    public function getChildren(): array
+    {
+        return $this->children;
     }
 }

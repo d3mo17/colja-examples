@@ -15,6 +15,14 @@ query {
   getEntity(id: 60) {
     id
     name
+    children (exclude: [
+        "Name of 4th child",
+        "Name of second child"
+        ]
+    ) {
+      id
+      name
+    }
   }
 }
 ```

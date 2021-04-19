@@ -4,5 +4,12 @@ extend type Query {
 
 type ColjaEntity {
     id: ID!,
+    name: String,
+    children(exclude: [String]): [ColjaWeakEntity]
+}
+
+type ColjaWeakEntity {
+    id: ID!,
     name: String
+    parent: ColjaEntity
 }
