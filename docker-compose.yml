@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  web:
+    image: nginx:latest
+    container_name: colja-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./public:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php
+
+  php:
+    build: ./docker/php7.4
+    container_name: colja-php
+    volumes:
+      - ./config:/var/www/config
+      - ./public:/var/www/html
+      - ./src:/var/www/src
+      - ./var:/var/www/var
+      - ./vendor:/var/www/vendor
+      - ./.env:/var/www/.env
+      - ./docker/php.ini:/usr/local/etc/php/php.ini
+
+  composer:
+    build: ./docker/composer
+    container_name: colja-composer
+    command: ["composer", "install"]
+    volumes:
+      - .:/app
